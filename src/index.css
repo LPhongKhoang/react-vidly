@@ -1,3 +1,20 @@
 body {
   padding: 20px 0 0;
 }
+
+/*======= Customized Bootstrap commom class */
+.list-group-item.active {
+  background-color: #49b877 !important;
+  border-color: #49b877 !important;
+}
+
+/*====== Common Css class ======= */
+.pointer {
+  cursor: pointer;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.ml-20 {
+  margin-left: 20px;
+}

@@ -64,6 +64,13 @@ const movies = [
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 7,
     dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21cb7eeb7f6fbccd471831",
+    title: "Spiderman Far From Home",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 4,
+    dailyRentalRate: 3.2
   }
 ];
 

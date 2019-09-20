@@ -1,34 +1,52 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
-export default ({pages=3, pageIndex=1, totalPages, onPageChange}) => {
+const Paginaion = ({pages=3, pageIndex=1, totalPages, onPageChange}) => {
+  if(totalPages <= 1) return null;
+
   if(pageIndex < 1) pageIndex = 1;
   if(pageIndex > totalPages) pageIndex = totalPages;
 
-  const startPageIndex = Math.floor(pageIndex/pages) * 3 + 1;
-  const endPageIndex = startPageIndex + 2;
+  const startPageIndex = Math.floor((pageIndex-1)/pages) * pages + 1;
+  const endPageIndex = (startPageIndex + pages-1) > totalPages ? totalPages : (startPageIndex + pages-1);
   const listPageCell = [];
   if(startPageIndex > pages) {
     listPageCell.push(
-      <li onClick={() => onPageChange(pageIndex-1)} class="page-item"><a class="page-link" href="#">Prev</a></li>
+      <li key="page_prev" onClick={() => onPageChange(pageIndex-1)} className="page-item">
+        <a className="page-link" href="#">Prev</a>
+      </li>
     );
   }
   for(let i = startPageIndex; i<=endPageIndex; i++) {
     listPageCell.push(
-      <li onClick={() => onPageChange(i)} class={i === pageIndex ? "page-item active" : "page-item"}><a class="page-link" href="#">{i}</a></li>
+      <li key={"page"+i} onClick={() => onPageChange(i)} className={i === pageIndex ? "page-item active" : "page-item"}>
+        <a className="page-link" href="#">{i}</a>
+      </li>
     )
   }
 
-  if(startPageIndex > pages) {
+  if(endPageIndex < totalPages ) {
     listPageCell.push(
-      <li onClick={() => onPageChange(pageIndex+1)} class="page-item"><a class="page-link" href="#">Next</a></li>
+      <li key="page_next" onClick={() => onPageChange(pageIndex+1)} className="page-item">
+        <a className="page-link" href="#">Next</a>
+      </li>
     );
   }
   
   return (
     <nav aria-label="Page navigation example">
-      <ul class="pagination">
+      <ul className="pagination">
         {listPageCell}
       </ul>
     </nav>
   );
 }
+
+Paginaion.propTypes = {
+  pages: PropTypes.number,
+  pageIndex: PropTypes.number,
+  totalPages: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired
+}
+
+export default Paginaion;
