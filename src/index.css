@@ -1,9 +1,24 @@
 body {
-  padding: 20px 0 0;
+  padding: 0;
 }
 
-/*======= Customized Bootstrap commom class */
+/*======= Customized Bootstrap commom class =============*/
+/* for menu-header navbar */
+.nav .nav-item a.nav-link {
+  line-height: 36px;
+  color: #fff;
+}
+
+.nav .nav-item a.nav-link.active {
+  font-weight: bolder;
+}
+/* for list group of genre */
 .list-group-item.active {
+  background-color: #49b877 !important;
+  border-color: #49b877 !important;
+}
+/* for color of pagination */
+.page-item.active .page-link {
   background-color: #49b877 !important;
   border-color: #49b877 !important;
 }
@@ -17,4 +32,7 @@ body {
 }
 .ml-20 {
   margin-left: 20px;
+}
+.pt-20 {
+  padding-top: 20px;
 }

@@ -1,12 +1,10 @@
 import React from 'react';
-import Movies from "./components/movies";
 import './App.css';
+import Layout from './components/layout';
 
 function App() {
   return (
-    <main className="container">
-      <Movies />
-    </main>
+    <Layout />
   );
 }
 
