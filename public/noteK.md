@@ -2,7 +2,7 @@
 `orange note`
 [orange_note]
 
-### A. Routing in ReactJS : "react-router-dom" lib (v.4.3.1)
+###  ============= A. Routing in ReactJS : "react-router-dom" lib (v.4.3.1)
 #1. Route parameters
 #2. Query String
 #3. Redirect User
@@ -58,7 +58,27 @@
 --> Nested Routing === Nested Component
 
 
-
+### B. ================ Form in React ============
+### 1. onSubmit props
+  -  `onSubmit` props takes function with params (e _ event)
+  - Normally, we don't want HTML form auto submit (send) data to server
+  ---> We prevent default behavior (e.preventDefault()) and use `fetch` or `axios` to send HTTP request to server
+### 2. Ref
+  - Use `ref` props when u want to control the `V_Dom` or `R_Dom` elements
+  - Don't abuse `ref`
+### 3. Controlled vs UnControlled React element
+  - Component is initialized with `null` or `undefined` value, React considers them as `uncontrolled` element
+  - A component should be only `controlled` or `uncontrolled` element during their lifecycle time
+### 4. 'Commom' problem: "Extracting" reusable component
+  - Extract and create <Input> component
+### 5. Validate form
+  - $$$ state (date) is use to manage UI --> the same with errors
+  - We have `this.state.errors.eachField` for managing `valid` of each field
+    + Validate on entire form
+    + Validate for each field (`onChange` event)
+  - Use `joi-browser` @13.4 lib for validating data in BROWSER
+    (reimplement 2 kinds of validation above with Joi)
+  
 
 
 

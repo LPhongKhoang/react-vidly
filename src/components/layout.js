@@ -7,11 +7,13 @@ import {
 } from "react-router-dom";
 import MenuHeader from "./menu-header";
 
-import Movies from "./movies";
-import Customers from "./customers";
-import Rentals from "./rentals";
-import PageNotFound from "./PageNotFound";
-import MovieForm from './movies-form';
+import Movies from "./routes/movies/index";
+import MovieForm from './routes/movies-form';
+import Customers from "./routes/customers";
+import Rentals from "./routes/rentals";
+import PageNotFound from "./routes/page-not-found";
+import RegisterForm from "./routes/register-form";
+import LoginForm from "./routes/login-form";
 
 const Layout = () => {
   return (
@@ -20,7 +22,9 @@ const Layout = () => {
       <main className="container">
         <div className="pt-20">
           <Switch>
-          <Route path="/movies/:id" component={MovieForm} />
+            <Route path="/login" component={LoginForm} />
+            <Route path="/register" component={RegisterForm} />
+            <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />

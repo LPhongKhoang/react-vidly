@@ -2,6 +2,7 @@ body {
   padding: 0;
 }
 
+
 /*======= Customized Bootstrap commom class =============*/
 /* for menu-header navbar */
 .nav .nav-item a.nav-link {
@@ -33,6 +34,26 @@ body {
 .ml-20 {
   margin-left: 20px;
 }
+.mb-10 { 
+  margin-bottom: 10px;
+}
+.mb-40 { 
+  margin-bottom: 40px;
+}
+.pt-8 {
+  padding-top: 8px;
+}
 .pt-20 {
   padding-top: 20px;
+}
+.pt-40 {
+  padding-top: 40px;
+}
+.w-400 {
+  width: 40% !important;
+  min-width: 300px;
+}
+.w-800 {
+  width: 80% !important;
+  min-width: 600px;
 }
