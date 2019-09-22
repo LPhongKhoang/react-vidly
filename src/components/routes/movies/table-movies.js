@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Heart from "./common/heart";
-import Table from "./common/table";
+import Heart from "../../common/heart";
+import Table from "../../common/table";
 
 const TableMovie = ({ movies, onLove, onDelete, sortColumn, onSort }) => {
   const columns = [
