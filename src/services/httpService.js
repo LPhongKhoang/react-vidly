@@ -5,7 +5,7 @@ import logger from './logService';
 // axios interceptors
 axios.interceptors.response.use(null, error => {
   const isExpectedError = error.response && error.response.status >= 400
-    && error.response.status < 5000;
+    && error.response.status < 500;
   if(!isExpectedError) {
     logger.log(error);
     toast.error("An unexpected error occurred");
