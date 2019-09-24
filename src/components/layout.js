@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import MenuHeader from "./menu-header";
 
 import Movies from "./routes/movies/index";
@@ -18,6 +19,7 @@ import LoginForm from "./routes/login-form";
 const Layout = () => {
   return (
     <Router>
+      <ToastContainer />
       <MenuHeader />
       <main className="container">
         <div className="pt-20">

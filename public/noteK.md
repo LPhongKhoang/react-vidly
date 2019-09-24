@@ -79,8 +79,44 @@
   - Use `joi-browser` @13.4 lib for validating data in BROWSER
     (reimplement 2 kinds of validation above with Joi)
   
-
-
+### C. =============== Send HTTP request ============
+- Fetch API, Axios lib, Jquery AJAX, ect
+### 1. Axios lib
+  - `axios`@0.18.0 : wrap data in request.data object
+### 2. Optimistic vs Pessimistic Updates
+  - `Pessimistic`: send request to server and wait for response -> update UI
+  - `Optimistic`: update UI -> send request -> if error -> roll back UI
+    + be careful with `this.setState` (more details: https://reactjs.org/docs/faq-state.html#what-does-setstate-do)
+### 3. Expected vs Unexpected error
+  - `Expected`: 404 _ not found, 400 _ bad request --> CLIENT ERRORS
+    --> Display a specific error message
+  - `Unexpected`: networt down, server down, db down, bug
+    --> Log them, display a generic and friendly error message
+  - try-catch block code of sending request to server: 
+    + In `exception` object will have
+      + ex.request != null: if request was send ok
+      + ex.response != null: if server send response ok
+### 4. Axios interceptors
+  - `axios.interceptors.response.use(successfull: func, error: func)`
+  --> whenever, server response to client, INTERCEPTORS BLOCK (success or error) will be called first 
+      then, pass control to next normal flow
+      /!\: if response error, `error: func` must return `rejected promise` 
+          --> in order to pass control to `catch block`
+### 5. Extracting Http module service
+  - It's important to create our http module base on `axios` or anything else
+    + export normal method like (get, put, post, delete, ect)
+    + handle all pre-request or pos-reponse
+### 6. Extracting Config module
+  - src/config.json
+### 7. Display toast notification
+  - use `react-toastify`@4.1.0
+  - use { ToastConteiner } for containing toast.error|info|warning:
+    + need to put <ToastContainer /> in `V_DOM` (virtual dom)
+  - use { toast } function to show message on <ToastContainer />
+### 8. Logging
+  - use third-party service: `sentry.io` with `raven-js` lib
+    + easy to config
+    + log error very details
 
 
 
