@@ -1,11 +1,14 @@
 import React from "react";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 
-const MenuHeader = () => {
+const MenuHeader = ({ user }) => {
   return (
-    <ul className="nav" style={{backgroundColor: '#49b877', padding: '0 30px'}}>
+    <ul
+      className="nav"
+      style={{ backgroundColor: "#49b877", padding: "0 30px" }}
+    >
       <li className="nav-item">
-        <Link className="nav-link" to="/" >
+        <Link className="nav-link" to="/">
           <h4>Vidly</h4>
         </Link>
       </li>
@@ -24,16 +27,34 @@ const MenuHeader = () => {
           Rentals
         </NavLink>
       </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/login">
-          Login
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink className="nav-link" to="/register">
-          Register
-        </NavLink>
-      </li>
+      {!user && (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              Login
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/register">
+              Register
+            </NavLink>
+          </li>
+        </>
+      )}
+      {user && (
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/profile">
+              {user.name}
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/logout">
+              Logout
+            </NavLink>
+          </li>
+        </>
+      )}
     </ul>
   );
 };

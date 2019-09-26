@@ -29,7 +29,7 @@ class Movies extends Component {
     });
   };
 
-  handleDeleteMovie = async   movie => {
+  handleDeleteMovie = async movie => {
     const originMovies = this.state.movies;
     this.setState({movies: originMovies.filter(m => m._id !== movie._id)});
     try{
@@ -122,6 +122,7 @@ class Movies extends Component {
       selectedGenre,
       sortColumn
     } = this.state;
+
     if (allMovies.length === 0) {
       return <p>There is no movie</p>;
     }
@@ -150,9 +151,11 @@ class Movies extends Component {
               </p>
             </div>
             <div className="col-2">
-              <Link className="btn btn-success" to="/movies/new">
-                New Movie
-              </Link>
+              {this.props.user && 
+                <Link className="btn btn-success" to="/movies/new">
+                  New Movie
+                </Link>
+              }
             </div>
           </div>
 

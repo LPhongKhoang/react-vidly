@@ -14,11 +14,18 @@ axios.interceptors.response.use(null, error => {
   return Promise.reject(error);
 });
 
+function setTokenToHeaders(jwt) {
+  console.log("x-auth-token");
+  // set x-auth-token in headers of all http request
+  axios.defaults.headers.common["x-auth-token"] = jwt;
+}
+
 // export Interface
 export default {
   get: axios.get,
   post: axios.post,
   put: axios.put,
   patch: axios.patch,
-  delete: axios.delete
+  delete: axios.delete,
+  setTokenToHeaders
 }

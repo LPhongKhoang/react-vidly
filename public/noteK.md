@@ -118,5 +118,33 @@
     + easy to config
     + log error very details
 
+### ============= D. Authentication vs Authorization ================
+### 1. Storing JWT when log in or register successfully
+  - Store `jwt` in `localStorage`
+### 2. Read JWT in header of the response
+  - In order to client (browser) can read the header of the response
+    --> Backend (nodejs): when set header should set `.header("access-control-expose-headers", "header-key-bla-bla")`
+  - Ready `payload` of token: use `jwt-decode`@2.2.0  
+### 3. Show current user on NavBar  
+  - Because when navigate between each route using <Link> or `history.push`. React's component haven't unmount (destroyed)
+  --> `componentDidMount` will not run
+  --> If we want code in that lifecycle hook runs again, use this below for mounting component that again
+  /!\ Note: Full reloaded `window.location="url"` instead of `history.push(url)`
+### 4. Implement Logout component
+  - don't render anything (just return null)
+  - in `componentDidMount` just remove token (or anything else) from localStorage. Then, reload to homepage
+### 5. Calling Protected API Endpoints
+  - in `httpService` should build in, append token to all http request
+  - use `axios.default.headers.common['x-auth-token'] = value`
+
+### 6. Fixing Bi-directional Dependencies
+  - A import B, B import A ===> Bad!!!!
+### 7. Showing or Hiding Elements based on the User
+### 8. Protecting Routes
+  - Create <ProtectedRoute>: wrapper component
+### 9. Redirecting after Login
+  - Use <Redirect to={object} /> 
+### 10. Hiding the Delete Column
+
 
 

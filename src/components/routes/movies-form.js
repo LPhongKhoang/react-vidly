@@ -1,7 +1,6 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "../common/form";
-import PropTypes from "prop-types";
 
 import { getGenres } from "../../services/genreService";
 import { saveMovie, getMovie } from "../../services/movieService";
@@ -152,21 +151,5 @@ class MovieForm extends Form {
     );
   }
 }
-
-MovieForm.defaultProps = {
-  titlePage: "Movie details",
-  movie: {}
-};
-
-MovieForm.propTypes = {
-  titlePage: PropTypes.string,
-  onSubmitMovie: PropTypes.func.isRequired,
-  movie: PropTypes.shape({
-    title: PropTypes.string,
-    genre: PropTypes.string,
-    numberInStock: PropTypes.number,
-    dailyRentalRate: PropTypes.number
-  })
-};
 
 export default MovieForm;
