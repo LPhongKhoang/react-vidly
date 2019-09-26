@@ -20,7 +20,8 @@ class Movies extends Component {
     selectedGenre: null,
     itemInPage: 3,
     pageIndex: 1,
-    sortColumn: { path: "title", order: "asc" }
+    sortColumn: { path: "title", order: "asc" },
+    loading: false
   };
 
   handlePageChange = idx => {
@@ -108,24 +109,21 @@ class Movies extends Component {
   };
 
   async componentDidMount() {
+    this.setState({loading: true});
     const { data: genres } = await getGenres();
     const { data: movies } = await getMovies();
-    this.setState({genres, movies});
+    this.setState({genres, movies, loading: false});
   }
 
   render() {
+    if(this.state.loading) return <p>Loading...</p>;
     const {
-      movies: allMovies,
       pageIndex,
       genres,
       searchQuery,
       selectedGenre,
       sortColumn
     } = this.state;
-
-    if (allMovies.length === 0) {
-      return <p>There is no movie</p>;
-    }
 
     const { lenShow, movies, totalPages } = this.getMoviesForDisplay();
 

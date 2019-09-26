@@ -2,6 +2,10 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 import logger from './logService';
 
+
+// axios config defaults base api_url
+axios.defaults.baseURL=process.env.REACT_APP_API_URL
+
 // axios interceptors
 axios.interceptors.response.use(null, error => {
   const isExpectedError = error.response && error.response.status >= 400
@@ -15,7 +19,6 @@ axios.interceptors.response.use(null, error => {
 });
 
 function setTokenToHeaders(jwt) {
-  console.log("x-auth-token");
   // set x-auth-token in headers of all http request
   axios.defaults.headers.common["x-auth-token"] = jwt;
 }

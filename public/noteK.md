@@ -146,5 +146,21 @@
   - Use <Redirect to={object} /> 
 ### 10. Hiding the Delete Column
 
+### ================== E. Deployment =====================
+### 1. Environment variables
+  - Create file `/.env` or `/.env.development`, ect
+  - Content in that file: `REACT_APP_KEY_1=VALUE_1` (without prefix: REACT_APP --> this won't be added to `process.env` )
+  - Use `process.env.KEY_1` to access value
+  - Environment variables can be set in `.env` file or directly in `terminal`
+  - When run `npm run start`: the build process is also executed (but not optimized). All env vars are replaced by there value at build time
+### 2. Building for production (optimized build)
+  - Run `npm run build`: ===> server `build/` folder, then `NODE_ENV=production`
+  - when run `npm run start`: ==> `NODE_ENV=developement` (the same with `npm run test`)
+### 3. Prepare for deploy front end
+  - Create `.env.development` and `.env.production` with content:
+    + REACT_APP_API_URL=[base_url_of_server]
+  - In HttpService: use: `axios.defaults.baseURL=process.env.REACT_APP_API_URL`
+
+
 
 
