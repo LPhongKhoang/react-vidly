@@ -13,14 +13,14 @@ const Paginaion = ({pages=3, pageIndex=1, totalPages, onPageChange}) => {
   if(startPageIndex > pages) {
     listPageCell.push(
       <li key="page_prev" onClick={() => onPageChange(pageIndex-1)} className="page-item">
-        <a className="page-link" href="#">Prev</a>
+        <font className="page-link">Prev</font>
       </li>
     );
   }
   for(let i = startPageIndex; i<=endPageIndex; i++) {
     listPageCell.push(
       <li key={"page"+i} onClick={() => onPageChange(i)} className={i === pageIndex ? "page-item active" : "page-item"}>
-        <a className="page-link" href="#">{i}</a>
+        <font className="page-link">{i}</font>
       </li>
     )
   }
@@ -28,7 +28,7 @@ const Paginaion = ({pages=3, pageIndex=1, totalPages, onPageChange}) => {
   if(endPageIndex < totalPages ) {
     listPageCell.push(
       <li key="page_next" onClick={() => onPageChange(pageIndex+1)} className="page-item">
-        <a className="page-link" href="#">Next</a>
+        <font className="page-link">Next</font>
       </li>
     );
   }

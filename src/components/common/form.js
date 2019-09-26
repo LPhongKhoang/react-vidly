@@ -18,6 +18,7 @@ class Form extends Component {
     );
     if (!error) return null;
     const errors = {};
+    // eslint-disable-next-line
     for (let item of error.details) errors[item.path] = item.message;
     return errors;
   };

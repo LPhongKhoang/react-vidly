@@ -1,6 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "../common/form";
+import { login } from "../../services/authService";
 
 class LoginForm extends Form {
   state = {
@@ -29,9 +30,20 @@ class LoginForm extends Form {
       .label("Your password")
   };
 
-  doSubmit = () => {
-    // Call http request to server
-    console.log("Submit login form");
+  doSubmit = async () => {
+    try{
+      const {email, password} = this.state.data;
+      
+      await login(email, password);
+      // redirect to home page  or last denied page: this.props.history.push("/"); But, want to reload page
+      window.location = (this.props.location.state && this.props.location.state.from) || "/";
+    }catch(ex) {
+      if(ex.response && ex.response.status===400) {
+        const errors = {...this.state.errors};
+        errors.email = ex.response.data;
+        this.setState({errors});
+      } 
+    }
   };
 
   render() {
