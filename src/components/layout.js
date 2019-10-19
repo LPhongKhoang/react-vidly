@@ -8,7 +8,8 @@ import {
 import { ToastContainer } from "react-toastify";
 
 import MenuHeader from "./menu-header";
-import Movies from "./routes/movies/index";
+import TestRichText from "./routes/test-rich-text";
+import Movies from "./routes/movies/";
 import MovieForm from "./routes/movies-form";
 import Customers from "./routes/customers";
 import Rentals from "./routes/rentals";
@@ -41,6 +42,7 @@ class Layout extends Component {
               <Route path="/login" component={LoginForm} />
               <Route path="/logout" component={Logout} />
               <Route path="/register" component={RegisterForm} />
+              <Route path="/test-rich-text" render={TestRichText} />
               <ProtectedRoute path="/movies/:id" component={MovieForm} />
               <Route
                 path="/movies"
@@ -49,7 +51,7 @@ class Layout extends Component {
               <Route path="/customers" component={Customers} />
               <Route path="/rentals" component={Rentals} />
               <Route path="/not-found" component={PageNotFound} />
-              <Redirect from="/" exact={true} to="/movies" />
+              <Redirect from="/" exact={true} to="/test-rich-text" />
               <Redirect to="/not-found" />
             </Switch>
           </div>

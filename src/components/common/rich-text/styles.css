@@ -1,0 +1,29 @@
+.editor {
+  position: relative;;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  cursor: text;
+  padding: 16px;
+  padding-top: 50px;
+  border-radius: 2px;
+  margin-bottom: 2em;
+  box-shadow: inset 0px 1px 8px -3px #ABABAB;
+  background: #fefefe;
+}
+.editor .DraftEditor-root {
+  margin-top: 20px; 
+}
+.editor .public-DraftEditor-content {
+  min-height: 240px;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.editor .static-toolbar .draftJsToolbar__toolbar__dNtBH {
+  position: absolute;
+  transform: none;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  width: 100% - calc(32px);
+}
